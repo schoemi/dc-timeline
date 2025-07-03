@@ -1,0 +1,9 @@
+/* Gradient Headline Widget Styles */
+.gradient-headline {
+  background: #121FCF;
+  background: linear-gradient(to bottom right, #121FCF 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
