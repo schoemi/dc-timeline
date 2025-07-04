@@ -40,7 +40,7 @@ class CTLE_Timeline_Widget extends Widget_Base {
       [
         'label' => __( 'Zeitraum', 'dc-timeline' ),
         'type' => Controls_Manager::TEXT,
-        'default' => __( 'August 1982', 'dc-timeline' ),
+        'default' => __( 'Juli 1980', 'dc-timeline' ),
       ]
     );
 
@@ -49,7 +49,7 @@ class CTLE_Timeline_Widget extends Widget_Base {
       [
         'label' => __( 'Überschrift', 'dc-timeline' ),
         'type' => Controls_Manager::TEXT,
-        'default' => __( 'Gründung', 'dc-timeline' ),
+        'default' => __( 'Überschrift', 'dc-timeline' ),
       ]
     );
 
@@ -58,7 +58,7 @@ class CTLE_Timeline_Widget extends Widget_Base {
       [
         'label' => __( 'Text', 'dc-timeline' ),
         'type' => Controls_Manager::TEXTAREA,
-        'default' => __( 'Gründung der ATG GmbH mit Firmensitz an der Rheinpromenade 43 in Emmerich am Rhein.', 'dc-timeline' ),
+        'default' => __( 'Lorem ipsum dolor sit amet.', 'dc-timeline' ),
       ]
     );
 
@@ -140,22 +140,7 @@ class CTLE_Timeline_Widget extends Widget_Base {
         ],
       ]
     );
-    $this->add_responsive_control(
-      'timeline_title_text_gap',
-      [
-        'label' => __( 'Abstand Überschrift/Text', 'dc-timeline' ),
-        'type' => Controls_Manager::SLIDER,
-        'size_units' => [ 'px', 'em', 'rem' ],
-        'range' => [
-          'px' => [ 'min' => 0, 'max' => 100 ],
-          'em' => [ 'min' => 0, 'max' => 10 ],
-          'rem' => [ 'min' => 0, 'max' => 10 ],
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .timeline-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-        ],
-      ]
-    );
+
     $this->end_controls_section();
 
     // --- Marker Section ---

@@ -34,11 +34,31 @@ class CTLE_Gradient_Headline_Widget extends Widget_Base {
       'headline_text',
       [
         'label' => __( 'Überschrift', 'dc-timeline' ),
-        'type' => Controls_Manager::TEXT,
+        'type' => Controls_Manager::TEXTAREA,
         'default' => __( 'Gradient Headline', 'dc-timeline' ),
         'placeholder' => __( 'Überschrift eingeben', 'dc-timeline' ),
       ]
     );
+
+    $this->end_controls_section();
+
+    // Typografie-Optionen für die Headline
+    $this->start_controls_section(
+      'style_typography_section',
+      [
+        'label' => __( 'Typografie', 'dc-timeline' ),
+        'tab' => Controls_Manager::TAB_STYLE,
+      ]
+    );
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'name' => 'headline_typography',
+        'label' => __( 'Typografie', 'dc-timeline' ),
+        'selector' => '{{WRAPPER}} .gradient-headline',
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->start_controls_section(
@@ -102,22 +122,40 @@ class CTLE_Gradient_Headline_Widget extends Widget_Base {
         ],
       ]
     );
+
     $this->end_controls_section();
 
-    // Typografie-Optionen für die Headline
     $this->start_controls_section(
-      'style_typography_section',
+      'alignment_section',
       [
-        'label' => __( 'Typografie', 'dc-timeline' ),
+        'label' => __( 'Ausrichtung', 'dc-timeline' ),
         'tab' => Controls_Manager::TAB_STYLE,
       ]
     );
-    $this->add_group_control(
-      \Elementor\Group_Control_Typography::get_type(),
+    $this->add_control(
+      'headline_alignment',
       [
-        'name' => 'headline_typography',
-        'label' => __( 'Typografie', 'dc-timeline' ),
-        'selector' => '{{WRAPPER}} .gradient-headline',
+        'label' => __( 'Ausrichtung', 'dc-timeline' ),
+        'type' => Controls_Manager::CHOOSE,
+        'options' => [
+          'left' => [
+            'title' => __( 'Links', 'dc-timeline' ),
+            'icon' => 'eicon-text-align-left',
+          ],
+          'center' => [
+            'title' => __( 'Zentriert', 'dc-timeline' ),
+            'icon' => 'eicon-text-align-center',
+          ],
+          'right' => [
+            'title' => __( 'Rechts', 'dc-timeline' ),
+            'icon' => 'eicon-text-align-right',
+          ],
+        ],
+        'default' => 'left',
+        'toggle' => false,
+        'selectors' => [
+          '{{WRAPPER}} .gradient-headline' => 'text-align: {{VALUE}};',
+        ],
       ]
     );
     $this->end_controls_section();
